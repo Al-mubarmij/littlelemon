@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Menu, Booking 
+from .models import Menu, Booking, MenuItem
 from django.contrib.auth.models import User
-from .serializers import BookingSerializer, MenuSerializer, UserSerializer
+from .serializers import BookingSerializer, MenuSerializer, UserSerializer, MenuItemSerializer
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
@@ -15,7 +15,7 @@ def index(request):
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 '''
     def get(self, request):
         items = Booking.objects.all()
@@ -44,14 +44,16 @@ class UserViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
 
 class MenuItemsView(ListCreateAPIView):
-    queryset = Menu.objects.all()
-    serializer_class = MenuSerializer
-
+    permission_classes = [IsAuthenticated]
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
+    
 
 
 class SingleMenuItemView(RetrieveUpdateDestroyAPIView):
-    queryset = Menu.objects.all()
+    queryset = MenuItem.objects.all()
     serializer_class = MenuSerializer
+    permission_classes = [IsAuthenticated]
 
 '''
 # Declaring viewSet class example:
