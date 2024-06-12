@@ -1,10 +1,4 @@
 
-*** note *** 
-if you want to see the code
-the views, models, serializers, and urls of these are in the restaurant app. 
-************
-
-
 > To check whether the app serves static content with Django:
     - go to -> http://127.0.0.1:8000/restaurant/
     - to see the code, go to the project level's templates/index.html
@@ -39,3 +33,7 @@ the views, models, serializers, and urls of these are in the restaurant app.
     - in the shell run: python manage.py test 
     - you should get OK
     - *you might get a warning about the datetime
+
+> the superuser i created:
+    - username = ali
+    - password = 1234
