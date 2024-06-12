@@ -36,3 +36,6 @@ the views, models, serializers, and urls of these are in the restaurant app.
         view, edit, or delete the item.
 
 > To run the tests
+    - in the shell run: python manage.py test 
+    - you should get OK
+    - *you might get a warning about the datetime
